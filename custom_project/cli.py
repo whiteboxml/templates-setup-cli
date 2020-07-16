@@ -1,7 +1,16 @@
+########################################################################################################################
+# IMPORTS
+
+import logging
+
 import click
 
-from ..main import (_custom_function)
-from ..utils import get_config, get_logger
+from .utils import get_config, get_logger
+
+########################################################################################################################
+# COMMANDS
+
+logger = logging.getLogger(__name__)
 
 
 @click.group(invoke_without_command=False)
@@ -14,10 +23,6 @@ def cli(ctx, config):
     ctx.obj['CONFIG'] = cfg
     get_logger(cfg['log']['level'])
 
-    # warn user in case there is no subcommand
-    if ctx.invoked_subcommand is None:
-        click.echo('custom_project module invoked without a subcommand...')
-
 
 @cli.command()
 @click.option('--argument', type=click.STRING)
@@ -25,7 +30,10 @@ def cli(ctx, config):
 def custom_function(ctx, argument):
     config = ctx.obj['CONFIG']
 
-    _custom_function(config, argument)
+    logger.debug(config)
+    logger.debug(argument)
+
+    logger.info('done!')
 
 
 if __name__ == '__main__':

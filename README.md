@@ -1,4 +1,4 @@
-# setup-template
+# setup-cli
 
 To rename settings to a new project:
 

@@ -1,5 +1,17 @@
+########################################################################################################################
+# IMPORTS
+
 import configparser
 import logging
+
+
+########################################################################################################################
+# FUNCTIONS
+
+def get_config(config_path):
+    cfg = configparser.RawConfigParser()
+    cfg.read(config_path)
+    return cfg
 
 
 def get_logger(level):
@@ -12,9 +24,3 @@ def get_logger(level):
     ch.setFormatter(formatter)
     logger.addHandler(ch)
     return logger
-
-
-def get_config(config_path):
-    cfg = configparser.ConfigParser()
-    cfg.read(config_path)
-    return cfg
