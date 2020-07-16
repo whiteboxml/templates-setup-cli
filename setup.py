@@ -15,7 +15,7 @@ setuptools.setup(
     description='',
     long_description=readme,
     long_description_content_type='text/markdown',
-    url='https://github.com/TheGurus/opendata-code',
+    url='',
     packages=setuptools.find_packages(),
     install_requires=requirements,
     classifiers=[
