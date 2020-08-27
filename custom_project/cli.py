@@ -5,7 +5,7 @@ import logging
 
 import click
 
-from .utils import get_config, get_logger
+from .utils import get_config, set_logger
 
 ########################################################################################################################
 # COMMANDS
@@ -21,7 +21,7 @@ def cli(ctx, config):
     cfg = get_config(config)
     ctx.ensure_object(dict)
     ctx.obj['CONFIG'] = cfg
-    get_logger(cfg['log']['level'])
+    set_logger(cfg['log']['level'])
 
 
 @cli.command()
